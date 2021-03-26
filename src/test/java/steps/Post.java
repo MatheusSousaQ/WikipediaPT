@@ -1,8 +1,8 @@
 package steps;
 
-import cucumber.api.java.pt.Dado;
-import cucumber.api.java.pt.Entao;
-import cucumber.api.java.pt.Quando;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,19 +18,18 @@ public class Post extends Base {
         this.base = base;
     }
 
-    @Dado("^que acesso a Wikipedia em portugues$")
+    @Given("^que acesso a Wikipedia em portugues$")
     public void que_acesso_a_Wikipedia_em_portugues()  {
         base.driver.get(base.url);
     }
 
-    @Quando("^pesquiso por \"([^\"]*)\"$")
+    @When("^pesquiso por \"([^\"]*)\"$")
     public void pesquiso_por(String produto)  {
         base.driver.findElement(By.id("searchInput")).sendKeys(produto + Keys.ENTER);
-
     }
 
-    @Entao("^Exibe a expressao \"([^\"]*)\" no titulo da guia$")
-    public void exibe_a_expressao_no_titulo_da_guia(String produto) throws InterruptedException {
+    @Then("^Exibe a expressao \"([^\"]*)\" no titulo da guia$")
+    public void exibe_a_expressao_no_titulo_da_guia(String produto){
         WebDriverWait wait = new WebDriverWait(base.driver, 5);
         wait.until(ExpectedConditions.titleContains(produto));
         assertTrue(base.driver.getTitle().contains(produto));
