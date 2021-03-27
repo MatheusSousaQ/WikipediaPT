@@ -39,7 +39,6 @@ public class Artigo {
         driver.findElement(By.name("search")).sendKeys("Ovo de Pascoa", Keys.ENTER);
         Thread.sleep(1000);
         assertTrue(driver.getTitle().contains("Ovo de Pascoa"));
-        //assertEquals("Resultados da pesquisa de \"Ovo de Pascoa\" - Wikipédia, a enciclopédia livre", driver.getTitle());
-        }
+    }
 
 }
