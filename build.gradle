@@ -28,7 +28,7 @@ task regressionTests(type: Test){
     include '**/Runner*'
 }
 
-task smokeTests(type: Test){
+task smokeTest(type: Test){
     include '**/Runner*'
 }
 
